@@ -27,6 +27,8 @@
     <script>vex.defaultOptions.className = 'vex-theme-os'</script>
     <link rel="stylesheet" href="vex/dist/css/vex.css" />
     <link rel="stylesheet" href="vex/dist/css/vex-theme-os.css" />
+    <script src="js/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/sweetalert.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -47,7 +49,10 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">HAPPI</a>
+                <a style="padding-top:0px" class="navbar-brand page-scroll" href="#page-top">
+                <img style="display:inline" src="img/HAPPI_logo.png" alt="Smiley face" class="logo" height="65" width="65"/>
+                <h6 style="display:inline">Helping Awesome Parents Parent Intentionally</h6>
+                </a>
 
                 <!-- <img src="img/.png" alt="Smiley face" height="106" width="106"/> -->
                 <!-- <h5> Helping Awesome Parents Parent Intentionally </h5> -->
@@ -59,9 +64,15 @@
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="#services">About</a>
-                    </li>
+                      <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">About
+                        <span class="caret"></span></a>
+                        <ul class="dropdown-menu" style="background-color: #064772">
+                          <li><a href="#mission">Mission</a></li>
+                          <li><a href="#vision">Vision</a></li>
+                          <li><a href="#logo">Logo</a></li>
+                        </ul>
+                      </li>
                     <li>
                         <a style="color:#064772" class="page-scroll" href="#portfolio">Donate</a>
                         <!--  MAKE YELLOW WHEN SCROLLING DOWN  -->
@@ -76,12 +87,7 @@
                         <a class="page-scroll" href="#contact">Contact</a>
                     </li>
                        <li>
-                        <a class="page-scroll" onclick="vex.dialog.confirm({
-    message: 'SOCIAL MEDIA ICONS HERE AND SIGN UP FIELD HERE',
-    callback: function (value) {
-        console.log(value)
-    }
-})">Connect</a>
+                        <a class="page-scroll" onclick="">Connect</a>
                        <!--  <span onclick="vex.dialog.confirm({
     message: 'Are you absolutely sure you want to destroy the alien planet?',
     callback: function (value) {
@@ -90,6 +96,14 @@
 })"> Connect </span> -->
                     </li>
                 </ul>
+            <!--      <ul class="list-inline social-buttons">
+                        <li><a href="#"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                    </ul> -->
             </div>
             <!-- /.navbar-collapse -->
         </div>
@@ -105,7 +119,7 @@
                 <div style="color:#d09d32" class="intro-heading"></div>
                  <div style="color:#d09d32" class="intro-lead-in">Don't Worry.</div>
                 <div style="color:#d09d32" class="intro-heading">Be.</div>
-                <a href="#vision" class="page-scroll btn btn-xl">Why?</a>
+                <a href="#vision" class="page-scroll btn btn-xl">Gabi to send</a>
             </div>
         </div>
     </header>
@@ -124,50 +138,50 @@
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-moon-o fa-stack-1x fa-inverse"></i>
+                        <i class="fa fa-mobile fa-stack-1x fa-inverse"></i>
                     </span>
-                    <h4 class="service-heading">Problem</h4>
-                    <p class="text-muted">The wrong light is guiding us.</p>
+                    <h4 class="service-heading">Attention section</h4>
+                    <p class="text-muted">Blurb.</p>
                 </div>
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+                        <i class="fa fa-users fa-stack-1x fa-inverse"></i>
                     </span>
-                    <h4 class="service-heading">Problem</h4>
-                    <p class="text-muted">Technology distracts us from what's important.</p>
+                    <h4 class="service-heading">Family connection section</h4>
+                    <p class="text-muted">Blurb here.</p>
                 </div>
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-hand-peace-o fa-stack-1x fa-inverse"></i>
+                        <i class="fa fa-plus-square fa-stack-1x fa-inverse"></i>
                     </span>
-                    <h4 class="service-heading">Problem</h4>
-                    <p class="text-muted">We need more peace, love and respect.</p>
+                    <h4 class="service-heading">Self-Care section</h4>
+                    <p class="text-muted">Blurb.</p>
                 </div>
             </div>
             <br/>
             <br/>
             <br/>
-             <div class="row" id="vision">
-                <div class="col-lg-12 text-center">
-                    <h3 class="section-heading">Mission</h3>
-                    <h3 class="section-subheading text-muted">HAPPI's mission is to...</h3>
-                </div>
-            </div>
+            <div class="row" id="mission"></div>
              <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h3 class="section-heading">Vision</h3>
-                    <h3 class="section-subheading text-muted">HAPPI's vision is to...</h3>
+                    <h3 class="section-heading">Mission</h3>
+                    <h3 class="section-subheading text-muted">HAPPI's mission is to educate, inspire, and empower parents to connect with themselves and their local communities to ensure future generations of HAPPIness.</h3>
                 </div>
             </div>
-            <div class="row">
+             <div class="row" id="vision">
+                <div class="col-lg-12 text-center">
+                    <h3 class="section-heading">Vision</h3>
+                    <h3 class="section-subheading text-muted">Gabi to send </h3>
+                </div>
+            </div>
+            <div class="row" id="logo">
                 <div class="col-lg-12 text-center">
                     <h3 class="section-heading">About the Logo</h3>
-                    <h3 class="section-subheading text-muted">Insert turtle story hurr.</h3>
+                    <h3 class="section-subheading text-muted">VIDEO HERE</h3>
                 </div>
             </div>
-            <img src="img/HAPPI-Logo.png" alt="Smiley face" class="logo" height="106" width="106"/>
 
         </div>
     </section>
@@ -177,7 +191,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Donate</h2>
+                    <h2 class="section-heading">Donate (gabi will send)</h2>
                     <br/>
                     <button type="submit" class="btn btn-xl">SUPPORT HAPPI</button>
                 </div>
@@ -192,7 +206,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Contact Us</h2>
-                    <h3 class="section-subheading text-muted">Let's be Happi together.</h3>
+                    <h3 class="section-subheading text-muted">Gabi will send here</h3>
                 </div>
             </div>
             <div class="row">
@@ -243,11 +257,13 @@
 
         <span class="col-md-4" style="display:inline-block;">
                     <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
                         <li><a href="#"><i class="fa fa-facebook"></i></a>
                         </li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                        <li><a href="https://www.instagram.com/happihumans/"><i class="fa fa-instagram"></i></a>
+                        </li>
+                        <li><a href="https://twitter.com/happihumans"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li><a href="https://www.linkedin.com/company-beta/18076382/"><i class="fa fa-linkedin"></i></a>
                         </li>
                     </ul>
                 </span>
@@ -282,10 +298,28 @@
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-md-3">
+            <!--     <div class="col-md-3">
                     <span> HAPPI, Inc 2016</span>
-                </div>
-<!--                 <div class="col-md-3">
+                </div> -->
+                 <span class="col-md-4" style="display:inline-block;">
+        <input type="text" name="post">
+        learn more by signing up
+        </input>
+        </span>
+                   <span class="col-md-4" style="display:inline-block;">
+                    <ul class="list-inline social-buttons">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li><a href="https://www.instagram.com/happihumans/"><i class="fa fa-instagram"></i></a>
+                        </li>
+                        <li><a href="https://twitter.com/happihumans"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li><a href="https://www.linkedin.com/company-beta/18076382/"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </span>
+
+<!--                 <div class="col-md-4">
                     <ul class="list-inline social-buttons">
                         <li><a href="#"><i class="fa fa-twitter"></i></a>
                         </li>
@@ -295,7 +329,8 @@
                         </li>
                     </ul>
                 </div> -->
-                <div class="col-md-3">
+                <div class="col-md-4">
+                <span> HAPPI, Inc 2016</span>
                     <ul class="list-inline quicklinks">
                         <li><a href="#">Privacy Policy</a>
                         </li>
@@ -303,22 +338,7 @@
                         </li>
                     </ul>
                 </div>
-                <span class="col-md-3" style="display:inline-block;">
-        <input type="text" name="post">
-        learn more by signing up
-        </input>
-        </span>
 
-        <span class="col-md-3" style="display:inline-block;">
-                    <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                        </li>
-                    </ul>
-                </span>
             </div>
         </div>
     </footer>
