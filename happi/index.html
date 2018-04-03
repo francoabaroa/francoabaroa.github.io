@@ -87,7 +87,7 @@
                         <a class="page-scroll" href="#contact">Contact</a>
                     </li>
                        <li>
-                        <a class="page-scroll" onclick="">Connect</a>
+                        <a class="page-scroll" id="clickMe" onclick="">Connect</a>
                        <!--  <span onclick="vex.dialog.confirm({
     message: 'Are you absolutely sure you want to destroy the alien planet?',
     callback: function (value) {
@@ -345,7 +345,34 @@
 
     <!-- jQuery -->
     <script src="vendor/jquery/jquery.min.js"></script>
-    <script> $(window).scroll(function() {
+    <script>
+    // document.getElementById("clickMe").onclick = function () {
+    //     swal({
+    //       title: "HTML <small>Title</small>!",
+    //       text: "A custom <span style="color:#F8BB86">html<span> message.",
+    //       html: true
+    //     });
+    // };
+    var socialMediaIcons = '<ul class="list-inline social-buttons">' +
+                '<li><a href="#"><i class="fa fa-facebook"></i></a></li>' +
+                '<li><a href="https://www.instagram.com/happihumans/"><i class="fa fa-instagram"></i></a></li>' +
+                '<li><a href="https://twitter.com/happihumans"><i class="fa fa-twitter"></i></a></li>' +
+                '<li><a href="https://www.linkedin.com/company-beta/18076382/"><i class="fa fa-linkedin"></i></a></li>' +
+                '</ul>';
+    var inputBox = '<span class="col-md-4" style="display:inline-block;">' +
+        '<input type="text" name="post">' +
+        'learn more by signing up' +
+        '</input>' +
+        '</span>';
+    document.querySelector('#clickMe').onclick = function(){
+    swal({
+        title: "Connect with us!",
+        text: socialMediaIcons,
+        html: true
+    });
+};
+
+    $(window).scroll(function() {
    if($(window).scrollTop() + $(window).height() == $(document).height()) {
        $('.footah').css( "display", "none" );
    } else {

@@ -1,7 +1,7 @@
 body.stop-scrolling {
   height: 100%;
   overflow: hidden; }
-
+button
 .sweet-overlay {
   background-color: black;
   /* IE8 */
@@ -172,7 +172,7 @@ body.stop-scrolling {
     opacity: 0;
     visibility: hidden; }
   .sweet-alert button {
-    background-color: #8CD4F5;
+    background-color: black !important;
     color: white;
     border: none;
     box-shadow: none;
