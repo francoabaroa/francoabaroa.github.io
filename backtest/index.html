@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>CryptoBacktest</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="loading-bar.css"/>
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/agency.min.css" rel="stylesheet">
+
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">CryptoBacktest</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav text-uppercase ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#backtest">Backtest</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="masthead">
+      <div class="container">
+        <div class="intro-text">
+          <div class="intro-lead-in">Welcome To Crypto Backtest</div>
+          <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#backtest">Let's backtest</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Services -->
+    <section id="backtest">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase" id="firstheader">Backtest</h2>
+            <div id="myItem1" style="width:50%;height:50%;margin:auto"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <form id="contactForm" name="sentMessage" novalidate="novalidate">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="form-group">
+                    <input class="form-control" id="profit" placeholder="Profit Take % *" required="required" data-validation-required-message="Please enter your profit take %.">
+                    <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" id="loss" placeholder="Stop Loss % *" required="required" data-validation-required-message="Please enter your stop loss %.">
+                    <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" id="time" placeholder="Time Out Period (in hrs) *" required="required" data-validation-required-message="Please enter your time out period.">
+                    <p class="help-block text-danger"></p>
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-lg-12 text-center">
+                  <div id="success"></div>
+                  <button class="btn btn-primary btn-xl text-uppercase" id="lastbtn">Backtest!</button>
+                  <br />
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- <div class="row">
+          <div class="col-lg-12">
+            <form id="contactForm" name="sentMessage" novalidate="novalidate">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input class="form-control" id="name" type="text" placeholder="Your Name *" required="required" data-validation-required-message="Please enter your name.">
+                    <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" id="email" type="email" placeholder="Your Email *" required="required" data-validation-required-message="Please enter your email address.">
+                    <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required="required" data-validation-required-message="Please enter your phone number.">
+                    <p class="help-block text-danger"></p>
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-lg-12 text-center">
+                  <div id="success"></div>
+                  <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Send Message</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div> -->
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <span class="copyright">Copyright &copy; Your Website 2018</span>
+          </div>
+          <div class="col-md-4">
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-facebook"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-linkedin"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <ul class="list-inline quicklinks">
+              <li class="list-inline-item">
+                <a href="#">Privacy Policy</a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">Terms of Use</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="loading-bar.js"></script>
+
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <script>
+      $("#lastbtn").on("mousedown", function () {
+        $('#lastbtn').html('Loading.. Please wait 1 minute');
+      }).on('mouseup', backtest);
+
+
+      // alertPrice is in USD
+      // var testData = [{
+      //   symbol: 'SYS',
+      //   startTime: '1518055200',
+      //   // 1518055200
+      //   alertPrice: '0.53740000'
+      // },{
+      //   symbol: 'ETC',
+      //   startTime: '1518447600',
+      //   alertPrice: '27.40000000'
+      // }];
+
+      var testData = [["SysCoin (SYS)", 1518026400], ["Ethereum Classic (ETC)", 1518418800], ["Electroneum (ETN)", 1518616800], ["Reddcoin (RDD)", 1519117200], ["Pillar (PLR)", 1519236000], ["Nano (XRB)", 1519401600], ["NEO (NEO)", 1520258400], ["Electroneum (ETN)", 1520258400], ["Bitcoin (BTC)", 1520287200], ["NEO (NEO)", 1520265600], ["Crown (CRW)", 1520982000], ["Crown (CRW)", 1520985600], ["Bitcoin Cash (BCH)", 1521061200], ["Ethereum (ETH)", 1521061200], ["NEO (NEO)", 1521061200], ["DigixDAO (DGD)", 1521072000], ["ICON (ICX)", 1521075600], ["Civic (CVC)", 1521147600], ["Civic (CVC)", 1521147600], ["Bytom (BTM)", 1521230400], ["Revain (R)", 1521244800], ["Ardor (ARDR)", 1521244800], ["MonaCoin (MONA)", 1521324000], ["Universa (UTNP)", 1521327600], ["Targetcoin (TGT)", 1521327600], ["Red Pulse (RPX)", 1521331200], ["Vertcoin (VTC)", 1521478800], ["ERA Network (ERA)", 1521478800], ["Navcoin (NAV)", 1521478800], ["Qtum (QTUM)", 1521482400], ["Tether (USDT)", 1521486000], ["Time New Bank (TNB)", 1521486000], ["Crypto20 (CRYPTO20)", 1521496800], ["Tron (TRX)", 1521496800], ["Vertcoin (VTC)", 1521565200], ["Kyber Network (KNC)", 1521594180], ["ICON (ICX)", 1521601380], ["U.Cash (UCASH)", 1521619500], ["Storm (STORM)", 1521637260], ["Storm (STORM)", 1521640860], ["Storm (STORM)", 1521651660], ["Storm (STORM)", 1521659160], ["Storm (STORM)", 1521666300], ["Ink (INK)", 1521763320], ["Presearch (PRE)", 1521828240], ["Tron (TRX)", 1521839040], ["Pura (PURA)", 1521907500], ["Storj (STORJ)", 1521914700], ["Eidoo (EDO)", 1521921900], ["Siacoin (SC)", 1522015440], ["Augur (REP)", 1522076640], ["Neo (NEO)", 1522080120], ["Verge (XVG)", 1522083780], ["Bitcoin (BTC)", 1522098060], ["Litecoin (LTC)", 1522098120], ["Ethereum (ETH)", 1522101660], ["Ripple (XRP)", 1522105260], ["Ontology (ONT)", 1522159380], ["Civic (CVC)", 1522162920], ["Mithril (MITH)", 1522163040], ["Power Ledger (POWR)", 1522173900], ["Ethereum (ETH)", 1522177260], ["Red Pulse (RPX)", 1522238580], ["VeChain (VEN)", 1522249320], ["VeChain (VEN)", 1522252920], ["VeChain (VEN)", 1522278120], ["Bitcoin (BTC)", 1522281660], ["WePower (WPR)", 1522285320], ["Skycoin (SKY)", 1522306860], ["Skycoin (SKY)", 1522307040], ["Bitcoin (BTC)", 1522339260], ["Ethereum (ETH)", 1522339320], ["Ripple (XRP)", 1522339380], ["Ripple (XRP)", 1522342860], ["TheKey (TKY)", 1522343100], ["Litecoin (LTC)", 1522350060], ["Bitcoin (BTC)", 1522353660], ["Lisk (LSK)", 1522353840], ["Ripple (XRP)", 1522357260], ["Bancor (BNT)", 1522357500], ["Ripple (XRP)", 1522360860], ["Revain (R)", 1522418580], ["Ark (ARK)", 1522429320], ["Decred (DCR)", 1522436700], ["Tron (TRX)", 1522450920], ["Neblio (NEBL)", 1522458240], ["Waltonchain (WTC)", 1522541700], ["XPA (XPA)", 1522548000], ["Bitcoin Gold (BTG)", 1522609380], ["VeChain (VEN)", 1522630800], ["Counteryparty (XCP)", 1522774800], ["Groestlcoin (GRS)", 1522814400], ["Melon (MLN)", 1522951200], ["Melon (MLN)", 1522954800], ["Bitcoin (BTC)", 1522965600], ["Counteryparty (XCP)", 1523034000], ["Bitcoin Diamond (BCD)", 1523034000], ["IoT Chain (ITC)", 1523037600], ["Elastos (ELA)", 1523124000], ["Bytom (BTM)", 1523127600], ["Golem (GNT)", 1523206800], ["Cardano (ADA)", 1523289600], ["Pillar (PLR)", 1523307600], ["Veritaseum (VER)", 1523311200], ["Veritaseum (VER)", 1523314800], ["VeChain (VEN)", 1523368800], ["Ripple (XRP)", 1523516400], ["IOTA (MIOTA)", 1523541600], ["Ethereum (ETH)", 1523548800], ["Ripple (XRP)", 1523548800], ["Ethereum (ETH)", 1523552400], ["Litecoin (LTC)", 1523552400], ["Tron (TRX)", 1523566800], ["Tron (TRX)", 1523570400], ["ZCoin (XZC)", 1523570400], ["Bluezelle (BLZ)", 1523646000], ["Gift (GTO)", 1523656800], ["Tierion (TNT)", 1523725200], ["Cindicator (CND)", 1523822400], ["VIBE (VIBE)", 1523822400], ["Storm (STORM)", 1523822400], ["SingularityNET (AGI)", 1523829600], ["SingularityNET (AGI)", 1523833200], ["SingularityNET (AGI)", 1523833200], ["Verge (XVG)", 1523901600], ["Verge (XVG)", 1523901600], ["Dash (DASH)", 1523912400], ["Dentacoin (DCN)", 1523995200], ["BitBay (BAY)", 1524063600], ["Dash (DASH)", 1524067200], ["Bitcoin Cash (BCH)", 1524081600], ["WAX (WAX)", 1524081600], ["Neo (NEO)", 1524085200], ["Tron (TRX)", 1524085200], ["Nano (NANO)", 1524085200], ["UTRUST (UTK)", 1524088800], ["Monaco (MCO)", 1524096000], ["Propy (PRO)", 1524160800], ["Nano (NANO)", 1524160800], ["Ethereum (ETH)", 1524168000], ["Modum (MOD)", 1524168000], ["Bitcoin Diamond (BCD)", 1524178800], ["Monacoin (MONA)", 1524178800], ["Ethereum (ETH)", 1524243600], ["Ripple (XRP)", 1524243600], ["Storm (STORM)", 1524258000], ["Zilliqa (ZIL)", 1524308400], ["Credits (CS)", 1524416400], ["IOStoken (IOST)", 1524427200], ["Bitcoin Gold (BTG)", 1524506400], ["Bitcoin (BTC)", 1524510000], ["Bitcoin Cash (BCH)", 1524510000], ["Bitcoin (BTC)", 1524513600], ["Bitcoin (BTC)", 1524517200], ["Litecoin (LTC)", 1524517200], ["EOS (EOS)", 1524524400], ["EOS (EOS)", 1524528000], ["Tron (TRX)", 1524574800], ["EOS (EOS)", 1524585600], ["NEO (NEO)", 1524589200], ["Tron (TRX)", 1524589200], ["Binance Coin (BNB)", 1524589200], ["Aion (AION)", 1524610800], ["Ontology (ONT)", 1524690000], ["Ontology (ONT)", 1524693600], ["ZCoin (XZC)", 1524852000], ["ETHLend (LEND)", 1524862800], ["Waves (WAVES)", 1524862800], ["Steem Dollars (SBD)", 1524891600], ["Syscoin (SYS)", 1524949200], ["EOS (EOS)", 1524967200], ["Stratis (STRAT)", 1525024800], ["Odyssey (OCN)", 1525035600], ["Iota (MIOTA)", 1525287600], ["Iota (MIOTA)", 1525298400], ["Bytecoin (BCN)", 1525298400], ["Ethereum (ETH)", 1525366800], ["Wanchain (WAN)", 1525370400], ["Enjin Coin (ENJ)", 1525453200], ["Bitcoin Cash (BCH)", 1525546800], ["SpankChain (SPANK)", 1525564800], ["Bitcoin (BTC)", 1525640400], ["Bytecoin (BCN)", 1525748400], ["aelf (ELF)", 1525903200], ["Nuls (NULS)", 1525910400], ["Dash (DASH)", 1525910400], ["Dentacoin (DCN)", 1525950000], ["Bitcoin (BTC)", 1525960800], ["Bitcoin (BTC)", 1525989600], ["EOS (EOS)", 1526079600], ["Ripple (XRP)", 1526252400], ["Monero (XMR)", 1526418000], ["BitShares (BTS)", 1526504400], ["Bytom (BTM)", 1526504400], ["Edgeless (EDG)", 1526594400], ["DigiByte (DGB)", 1526832000], ["Ethereum (ETH)", 1526853600], ["Tron (TRX)", 1526929200], ["Litecoin (LTC)", 1527019200], ["Ripple (XRP)", 1527022800], ["Ripple (XRP)", 1527076800], ["EOS (EOS)", 1527202800], ["Mixin (XIN)", 1527202800], ["Cardano (ADA)", 1527440400], ["Monaco (MCO)", 1528761600], ["Ethereum Classic (ETC)", 1528765200], ["Bitcoin Diamond (BCD)", 1528772400], ["Vertcoin (VTC)", 1528826400], ["Monaco (MCO)", 1528830000], ["Stellar (XLM)", 1528833600], ["Bitcoin Cash (BCH)", 1528840800], ["Gas (GAS)", 1528840800], ["Ambrosus (AMB)", 1528844400], ["Gifto (GTO)", 1528880400], ["Swarm (SWM)", 1528909200], ["Waltonchain (WTC)", 1528916400], ["Siacoin (SC)", 1528930800], ["Stellar (XLM)", 1528995600], ["Bottos (BTO)", 1529013600], ["Nexo (NEXO)", 1529013600], ["Gnosis (GNO)", 1529017200], ["Ambrosus (AMB)", 1529096400], ["Groestlcoin (GRS)", 1529352000], ["Bluezelle (BLZ)", 1529355600], ["Peercoin (PPC)", 1529438400], ["Dai (DAI)", 1529528400], ["Mithril (MITH)", 1529600400], ["Gifto (GTO)", 1529776800], ["Bitcore (BTX)", 1529863200], ["Aragon (ANT)", 1529953200], ["Nebulas (NAS)", 1529956800], ["Komodo (KMD)", 1529985600], ["Kin (KIN)", 1530104400], ["Monaco (MCO)", 1530118800], ["ZClassic (ZCL)", 1530122400], ["Edgeless (EDG)", 1530180000], ["Dent (DENT)", 1530208800], ["Bread (BRD)", 1530230400], ["Primecoin (XPM)", 1530280800], ["THEKEY (TKY)", 1530378000], ["Ink (INK)", 1530403200], ["Cryptonex (CNX)", 1530460800], ["MonaCoin (MONA)", 1530471600], ["Nexus (NXS)", 1530489600], ["Theta Token (THETA)", 1530550800], ["ETHLend (LEND)", 1530554400], ["Groestlcoin (GRS)", 1530561600], ["Peercoin (PPC)", 1530568800], ["Civic (CVC)", 1530723600], ["Crypterium (CRPT)", 1530997200], ["Bancor (BNT)", 1531170000], ["Bancor (BNT)", 1531202400], ["Mixin (XIN)", 1531522800], ["Mixin (XIN)", 1531526400], ["Cindicator (CND)", 1531526400], ["Enjin Coin (ENJ)", 1531605600], ["Zcash (ZEC)", 1531605600], ["Aragon (ANT)", 1531674000], ["Ethereum (ETH)", 1531684800], ["Einsteinium (EMC2)", 1531749600], ["Bitcoin (BTC)", 1531756800], ["Apex (CPX)", 1531760400], ["TenX (PAY)", 1531771200], ["Bitcoin (BTC)", 1531778400], ["EOS (EOS)", 1531778400], ["Polymath (POLY)", 1531782000], ["Bitcoin (BTC)", 1531782000], ["THEKEY (TKY)", 1531782000], ["TenX (PAY)", 1531792800], ["IoTeX (IOTX)", 1531825200], ["Litecoin (LTC)", 1531836000], ["Decentraland (MANA)", 1531854000], ["Civic (CVC)", 1531854000], ["Cardano (ADA)", 1531854000], ["Cardano (ADA)", 1531864800], ["MonaCoin (MONA)", 1531864800], ["Status (SNT)", 1531897200], ["Dent (DENT)", 1531940400], ["VeChain (VEN)", 1532037600], ["Nebulas (NAS)", 1532196000], ["SmartCash (SMART)", 1532214000], ["Ignis (IGNIS)", 1532214000], ["Cube (AUTO)", 1532224800], ["Red Pulse (RPX)", 1532278800], ["THEKEY (TKY)", 1532278800], ["Mithril (MITH)", 1532286000], ["Holo (HOT)", 1532343600], ["Maker (MKR)", 1532376000], ["True Chain (TRUE)", 1532469600], ["AdEX (ADX)", 1532473200], ["Basic Attention Token (BAT)", 1532473200], ["QASH (QASH)", 1532455200], ["Bitcoin (BTC)", 1532455200], ["TRON (TRX)", 1532455200], ["IOST (IOST)", 1532455200], ["IOST (IOST)", 1532455200], ["IOST (IOST)", 1532559600], ["Neblio (NEBL)", 1532559600], ["Cryptonex (CNX)", 1532505600], ["SALT (SALT)", 1532530200], ["Vertcoin (VTC)", 1532530200], ["Stellar (XLM)", 1532530200], ["Emercoin (EMC)", 1532538000], ["Maker (MKR)", 1532545200], ["Polymath (POLY)", 1532638800], ["Aeternity (AE)", 1532739600], ["NavCoin (NAV)", 1532739600], ["Ambrosus (AMB)", 1532793600], ["Polymath (POLY)", 1532811600], ["Request Network (REQ)", 1532917200], ["Iconomi (ICN)", 1532970000], ["ETHLend (LEND)", 1532984400], ["Request Network (REQ)", 1533056400], ["Request Network (REQ)", 1533056400], ["SmartCash (SMART)", 1533067200], ["Cindicator (CND)", 1533070800], ["Storiqa (STQ)", 1533074400], ["XRP (XRP)", 1533150000], ["Zilliqa (ZIL)", 1533153600], ["Holo (HOT)", 1533153600], ["Dai (DAI)", 1533178800], ["Enjin Coin (ENJ)", 1533178800], ["WAX (WAX)", 1533218400], ["Loom Network (LOOM)", 1533243600], ["Ambrosus (AMB)", 1533315600], ["Bitcoin Interest (BCI)", 1533333600], ["DAI (DAI)", 1533430800], ["Bitcoin Private (BTCP)", 1533517200], ["Factom (FCT)", 1533524400]];
+
+    function backtest() {
+      // NEED validation
+      // strip %, make sure data types are fine
+      document.getElementById("lastbtn").style.display = "none";
+
+      var profit = document.getElementById("profit").value;
+      var loss = document.getElementById("loss").value;
+      var time = parseFloat(document.getElementById("time").value);
+      var results = [];
+      document.getElementById("lastbtn").style.display = "none";
+
+      // var bar1 = new ldBar("#myItem1");
+      // var bar2 = null;
+      // var progressNumber = 0;
+      // bar2 = document.getElementById('myItem1').ldBar;
+      // bar1.set(progressNumber);
+
+      for (var i = 0; i < 10; i++) {
+        // progressNumber = parseInt(i * 100 / testData.length);
+        // console.log('progress Number', progressNumber);
+
+        // bar2 = document.getElementById('myItem1').ldBar;
+        // bar1.set(progressNumber);
+
+        // $( "#firstheader" ).replaceWith( "<h2>Test " + progressNumber + "</h2>" );
+
+        // alert(progressNumber);
+
+        var symbol = testData[i][0].match(/\(([^)]+)\)/)[1];
+        var startTime = testData[i][1];
+        var newTime = (time * 3600);
+        var endTime = parseFloat(startTime) + newTime;
+        // console.log(typeof startTime, typeof newTime, typeof endTime)
+        // console.log('time, ', time);
+        var historicalData = getExchangeRate(profit, loss, endTime, symbol, time);
+        // need to optimize
+        var result = [symbol, startTime];
+        var price = 0;
+        var duration = 0;
+
+
+        if (historicalData) {
+          console.log('SYM: ', symbol);
+          var output = findProfitOrLossOrNone(historicalData, profit, loss, time);
+          if (output && !isNaN(output.profit)) {
+            result.push(output.profit);
+            result.push(output.duration);
+            results.push(result);
+          }
+        }
+        else {
+          console.log("error: no data");
+        }
+
+      // result = [symbol, startTime, price, duration];
+
+        // console.log(historicalData, 'historicalData');
+      }
+
+      var total = 0;
+      for (var j = 0; j < results.length; j++) {
+        total += results[j][2];
+      }
+      total -= results.length;
+
+      console.log('TOTAL: ', total, parseFloat(total * 100).toFixed(2) + '%');
+
+
+      $("<h1>" + "Results: " + parseFloat(total * 100).toFixed(2) + '%' + "</h1>").insertAfter("BUTTON");
+
+      console.log('results:', results);
+
+      // let test = getExchangeRate(profit, loss, endTime, testData[0].symbol, time);
+      // console.log('API TEST', test);
+    }
+
+    // todo, do we need all these parameters?
+    function getExchangeRate(profit, loss, time, currency, timeOut) {
+      // TODO: Synchronous XMLHttpRequest on the main thread is deprecated
+      let GET = 'GET';
+      let cryptocompareAPI = 'https://min-api.cryptocompare.com/data/histohour?fsym=';
+      let cryptocompareUSD = '&tsym=USD';
+      let limit = '&limit=' + timeOut;
+      let aggregate = '&aggregate=1';
+      let ts = '&toTs=' + time;
+      let USD = 'USD';
+      let url = cryptocompareAPI + currency + cryptocompareUSD + limit + aggregate + ts;
+
+      let request = new XMLHttpRequest();
+      request.open(
+        GET,
+        cryptocompareAPI + currency + cryptocompareUSD + limit + aggregate + ts,
+        false
+      );
+      request.send(null);
+      return JSON.parse(request.responseText);
+    }
+
+    function findProfitOrLossOrNone(historicalData, profit, loss, time) {
+      let currentData = historicalData.Data;
+
+      if (currentData.length === 0) {
+        return null;
+      }
+
+      let buyPrice = currentData[0].open;
+
+      let profitTake = (parseFloat(profit)/100);
+      let gainThreshold = (profitTake + 1) * parseFloat(buyPrice);
+
+      let stopLoss = (parseFloat(loss)/100);
+      let lossThreshold = (1 - stopLoss) * parseFloat(buyPrice);
+
+      let sellPrice = -1;
+      let duration = -1;
+
+      // console.log('gainThreshold', gainThreshold, 'lossThreshold', lossThreshold, 'buyPrice', buyPrice);
+
+      for (var j = 0; j < currentData.length; j++) {
+        let hourlyHigh = currentData[j].high;
+        let hourlyLow = currentData[j].low;
+        let closePrice = currentData[j].close;
+        let profitHit = false;
+        let lossHit = false;
+        // console.log('LOOP: ', j, 'Hourly high: ', hourlyHigh, 'hourly low', hourlyLow);
+
+        if (hourlyHigh >= gainThreshold) {
+          profitHit = true;
+          // set gainThreshold flag
+          // use j for timeout duration
+        }
+
+        if (hourlyLow <= lossThreshold) {
+          lossHit = true;
+          // set lossThreshold flag
+          // use j for timeout duration
+        }
+
+        if (profitHit){
+          sellPrice = gainThreshold;
+        }
+        if (lossHit){
+          sellPrice = lossThreshold
+        }
+
+        if (profitHit && lossHit){
+          sellPrice = buyPrice;
+        }
+
+        if (lossHit || profitHit){
+          duration = j + 1;
+          break;
+        }
+
+        // console.log('J', j, 'TIME: ', time);
+
+        if (j === time){
+          duration = time;
+          sellPrice = closePrice;
+        }
+      }
+
+      return {profit: (sellPrice/buyPrice), duration};
+      // console.log('sellPrice', sellPrice, 'duration', duration);
+    }
+
+    </script>
+    <!-- Contact form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/agency.min.js"></script>
+
+  </body>
+
+</html>
