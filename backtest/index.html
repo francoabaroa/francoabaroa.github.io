@@ -157,8 +157,8 @@
     function backtest() {
       // TODO: Need validation
       // TODO: strip %, make sure data types are fine
-      let profit = document.getElementById("profit").value;
-      let loss = document.getElementById("loss").value;
+      let profit = parseFloat(document.getElementById("profit").value.replace(/\d+% ?/g, ""));
+      let loss = parseFloat(document.getElementById("loss").value.replace(/\d+% ?/g, ""));
       let time = parseFloat(document.getElementById("time").value);
       let results = [];
 
