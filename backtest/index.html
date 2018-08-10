@@ -148,241 +148,28 @@
 
     <script>
       const loadingMessage = 'Loading.. Please wait 1 minute';
-      let alertsHistoricalData;
-      // https://francoabaroa.github.io/backtest/test_data_file.json
-      let GET = 'GET';
-      let apiURL = 'https://francoabaroa.github.io/backtest/alertsHistoricalData3.json';
-      let request = new XMLHttpRequest();
-      request.open(GET, apiURL, false);
-      request.send(null);
-      alertsHistoricalData = JSON.parse(request.responseText);
-
       $('#lastbtn').on('mousedown', function () {
         $('#lastbtn').html(loadingMessage);
       }).on('mouseup', backtest);
 
-      const alertData = [["SysCoin (SYS)", 1518026400], ["Ethereum Classic (ETC)", 1518418800], ["Electroneum (ETN)", 1518616800], ["Reddcoin (RDD)", 1519117200], ["Pillar (PLR)", 1519236000], ["Nano (XRB)", 1519401600], ["NEO (NEO)", 1520258400], ["Electroneum (ETN)", 1520258400], ["Bitcoin (BTC)", 1520287200], ["NEO (NEO)", 1520265600], ["Crown (CRW)", 1520982000], ["Crown (CRW)", 1520985600], ["Bitcoin Cash (BCH)", 1521061200], ["Ethereum (ETH)", 1521061200], ["NEO (NEO)", 1521061200], ["DigixDAO (DGD)", 1521072000], ["ICON (ICX)", 1521075600], ["Civic (CVC)", 1521147600], ["Civic (CVC)", 1521147600], ["Bytom (BTM)", 1521230400], ["Revain (R)", 1521244800], ["Ardor (ARDR)", 1521244800], ["MonaCoin (MONA)", 1521324000], ["Universa (UTNP)", 1521327600], ["Targetcoin (TGT)", 1521327600], ["Red Pulse (RPX)", 1521331200], ["Vertcoin (VTC)", 1521478800], ["ERA Network (ERA)", 1521478800], ["Navcoin (NAV)", 1521478800], ["Qtum (QTUM)", 1521482400], ["Tether (USDT)", 1521486000], ["Time New Bank (TNB)", 1521486000], ["Crypto20 (CRYPTO20)", 1521496800], ["Tron (TRX)", 1521496800], ["Vertcoin (VTC)", 1521565200], ["Kyber Network (KNC)", 1521594180], ["ICON (ICX)", 1521601380], ["U.Cash (UCASH)", 1521619500], ["Storm (STORM)", 1521637260], ["Storm (STORM)", 1521640860], ["Storm (STORM)", 1521651660], ["Storm (STORM)", 1521659160], ["Storm (STORM)", 1521666300], ["Ink (INK)", 1521763320], ["Presearch (PRE)", 1521828240], ["Tron (TRX)", 1521839040], ["Pura (PURA)", 1521907500], ["Storj (STORJ)", 1521914700], ["Eidoo (EDO)", 1521921900], ["Siacoin (SC)", 1522015440], ["Augur (REP)", 1522076640], ["Neo (NEO)", 1522080120], ["Verge (XVG)", 1522083780], ["Bitcoin (BTC)", 1522098060], ["Litecoin (LTC)", 1522098120], ["Ethereum (ETH)", 1522101660], ["Ripple (XRP)", 1522105260], ["Ontology (ONT)", 1522159380], ["Civic (CVC)", 1522162920], ["Mithril (MITH)", 1522163040], ["Power Ledger (POWR)", 1522173900], ["Ethereum (ETH)", 1522177260], ["Red Pulse (RPX)", 1522238580], ["VeChain (VEN)", 1522249320], ["VeChain (VEN)", 1522252920], ["VeChain (VEN)", 1522278120], ["Bitcoin (BTC)", 1522281660], ["WePower (WPR)", 1522285320], ["Skycoin (SKY)", 1522306860], ["Skycoin (SKY)", 1522307040], ["Bitcoin (BTC)", 1522339260], ["Ethereum (ETH)", 1522339320], ["Ripple (XRP)", 1522339380], ["Ripple (XRP)", 1522342860], ["TheKey (TKY)", 1522343100], ["Litecoin (LTC)", 1522350060], ["Bitcoin (BTC)", 1522353660], ["Lisk (LSK)", 1522353840], ["Ripple (XRP)", 1522357260], ["Bancor (BNT)", 1522357500], ["Ripple (XRP)", 1522360860], ["Revain (R)", 1522418580], ["Ark (ARK)", 1522429320], ["Decred (DCR)", 1522436700], ["Tron (TRX)", 1522450920], ["Neblio (NEBL)", 1522458240], ["Waltonchain (WTC)", 1522541700], ["XPA (XPA)", 1522548000], ["Bitcoin Gold (BTG)", 1522609380], ["VeChain (VEN)", 1522630800], ["Counteryparty (XCP)", 1522774800], ["Groestlcoin (GRS)", 1522814400], ["Melon (MLN)", 1522951200], ["Melon (MLN)", 1522954800], ["Bitcoin (BTC)", 1522965600], ["Counteryparty (XCP)", 1523034000], ["Bitcoin Diamond (BCD)", 1523034000], ["IoT Chain (ITC)", 1523037600], ["Elastos (ELA)", 1523124000], ["Bytom (BTM)", 1523127600], ["Golem (GNT)", 1523206800], ["Cardano (ADA)", 1523289600], ["Pillar (PLR)", 1523307600], ["Veritaseum (VER)", 1523311200], ["Veritaseum (VER)", 1523314800], ["VeChain (VEN)", 1523368800], ["Ripple (XRP)", 1523516400], ["IOTA (MIOTA)", 1523541600], ["Ethereum (ETH)", 1523548800], ["Ripple (XRP)", 1523548800], ["Ethereum (ETH)", 1523552400], ["Litecoin (LTC)", 1523552400], ["Tron (TRX)", 1523566800], ["Tron (TRX)", 1523570400], ["ZCoin (XZC)", 1523570400], ["Bluezelle (BLZ)", 1523646000], ["Gift (GTO)", 1523656800], ["Tierion (TNT)", 1523725200], ["Cindicator (CND)", 1523822400], ["VIBE (VIBE)", 1523822400], ["Storm (STORM)", 1523822400], ["SingularityNET (AGI)", 1523829600], ["SingularityNET (AGI)", 1523833200], ["SingularityNET (AGI)", 1523833200], ["Verge (XVG)", 1523901600], ["Verge (XVG)", 1523901600], ["Dash (DASH)", 1523912400], ["Dentacoin (DCN)", 1523995200], ["BitBay (BAY)", 1524063600], ["Dash (DASH)", 1524067200], ["Bitcoin Cash (BCH)", 1524081600], ["WAX (WAX)", 1524081600], ["Neo (NEO)", 1524085200], ["Tron (TRX)", 1524085200], ["Nano (NANO)", 1524085200], ["UTRUST (UTK)", 1524088800], ["Monaco (MCO)", 1524096000], ["Propy (PRO)", 1524160800], ["Nano (NANO)", 1524160800], ["Ethereum (ETH)", 1524168000], ["Modum (MOD)", 1524168000], ["Bitcoin Diamond (BCD)", 1524178800], ["Monacoin (MONA)", 1524178800], ["Ethereum (ETH)", 1524243600], ["Ripple (XRP)", 1524243600], ["Storm (STORM)", 1524258000], ["Zilliqa (ZIL)", 1524308400], ["Credits (CS)", 1524416400], ["IOStoken (IOST)", 1524427200], ["Bitcoin Gold (BTG)", 1524506400], ["Bitcoin (BTC)", 1524510000], ["Bitcoin Cash (BCH)", 1524510000], ["Bitcoin (BTC)", 1524513600], ["Bitcoin (BTC)", 1524517200], ["Litecoin (LTC)", 1524517200], ["EOS (EOS)", 1524524400], ["EOS (EOS)", 1524528000], ["Tron (TRX)", 1524574800], ["EOS (EOS)", 1524585600], ["NEO (NEO)", 1524589200], ["Tron (TRX)", 1524589200], ["Binance Coin (BNB)", 1524589200], ["Aion (AION)", 1524610800], ["Ontology (ONT)", 1524690000], ["Ontology (ONT)", 1524693600], ["ZCoin (XZC)", 1524852000], ["ETHLend (LEND)", 1524862800], ["Waves (WAVES)", 1524862800], ["Steem Dollars (SBD)", 1524891600], ["Syscoin (SYS)", 1524949200], ["EOS (EOS)", 1524967200], ["Stratis (STRAT)", 1525024800], ["Odyssey (OCN)", 1525035600], ["Iota (MIOTA)", 1525287600], ["Iota (MIOTA)", 1525298400], ["Bytecoin (BCN)", 1525298400], ["Ethereum (ETH)", 1525366800], ["Wanchain (WAN)", 1525370400], ["Enjin Coin (ENJ)", 1525453200], ["Bitcoin Cash (BCH)", 1525546800], ["SpankChain (SPANK)", 1525564800], ["Bitcoin (BTC)", 1525640400], ["Bytecoin (BCN)", 1525748400], ["aelf (ELF)", 1525903200], ["Nuls (NULS)", 1525910400], ["Dash (DASH)", 1525910400], ["Dentacoin (DCN)", 1525950000], ["Bitcoin (BTC)", 1525960800], ["Bitcoin (BTC)", 1525989600], ["EOS (EOS)", 1526079600], ["Ripple (XRP)", 1526252400], ["Monero (XMR)", 1526418000], ["BitShares (BTS)", 1526504400], ["Bytom (BTM)", 1526504400], ["Edgeless (EDG)", 1526594400], ["DigiByte (DGB)", 1526832000], ["Ethereum (ETH)", 1526853600], ["Tron (TRX)", 1526929200], ["Litecoin (LTC)", 1527019200], ["Ripple (XRP)", 1527022800], ["Ripple (XRP)", 1527076800], ["EOS (EOS)", 1527202800], ["Mixin (XIN)", 1527202800], ["Cardano (ADA)", 1527440400], ["Monaco (MCO)", 1528761600], ["Ethereum Classic (ETC)", 1528765200], ["Bitcoin Diamond (BCD)", 1528772400], ["Vertcoin (VTC)", 1528826400], ["Monaco (MCO)", 1528830000], ["Stellar (XLM)", 1528833600], ["Bitcoin Cash (BCH)", 1528840800], ["Gas (GAS)", 1528840800], ["Ambrosus (AMB)", 1528844400], ["Gifto (GTO)", 1528880400], ["Swarm (SWM)", 1528909200], ["Waltonchain (WTC)", 1528916400], ["Siacoin (SC)", 1528930800], ["Stellar (XLM)", 1528995600], ["Bottos (BTO)", 1529013600], ["Nexo (NEXO)", 1529013600], ["Gnosis (GNO)", 1529017200], ["Ambrosus (AMB)", 1529096400], ["Groestlcoin (GRS)", 1529352000], ["Bluezelle (BLZ)", 1529355600], ["Peercoin (PPC)", 1529438400], ["Dai (DAI)", 1529528400], ["Mithril (MITH)", 1529600400], ["Gifto (GTO)", 1529776800], ["Bitcore (BTX)", 1529863200], ["Aragon (ANT)", 1529953200], ["Nebulas (NAS)", 1529956800], ["Komodo (KMD)", 1529985600], ["Kin (KIN)", 1530104400], ["Monaco (MCO)", 1530118800], ["ZClassic (ZCL)", 1530122400], ["Edgeless (EDG)", 1530180000], ["Dent (DENT)", 1530208800], ["Bread (BRD)", 1530230400], ["Primecoin (XPM)", 1530280800], ["THEKEY (TKY)", 1530378000], ["Ink (INK)", 1530403200], ["Cryptonex (CNX)", 1530460800], ["MonaCoin (MONA)", 1530471600], ["Nexus (NXS)", 1530489600], ["Theta Token (THETA)", 1530550800], ["ETHLend (LEND)", 1530554400], ["Groestlcoin (GRS)", 1530561600], ["Peercoin (PPC)", 1530568800], ["Civic (CVC)", 1530723600], ["Crypterium (CRPT)", 1530997200], ["Bancor (BNT)", 1531170000], ["Bancor (BNT)", 1531202400], ["Mixin (XIN)", 1531522800], ["Mixin (XIN)", 1531526400], ["Cindicator (CND)", 1531526400], ["Enjin Coin (ENJ)", 1531605600], ["Zcash (ZEC)", 1531605600], ["Aragon (ANT)", 1531674000], ["Ethereum (ETH)", 1531684800], ["Einsteinium (EMC2)", 1531749600], ["Bitcoin (BTC)", 1531756800], ["Apex (CPX)", 1531760400], ["TenX (PAY)", 1531771200], ["Bitcoin (BTC)", 1531778400], ["EOS (EOS)", 1531778400], ["Polymath (POLY)", 1531782000], ["Bitcoin (BTC)", 1531782000], ["THEKEY (TKY)", 1531782000], ["TenX (PAY)", 1531792800], ["IoTeX (IOTX)", 1531825200], ["Litecoin (LTC)", 1531836000], ["Decentraland (MANA)", 1531854000], ["Civic (CVC)", 1531854000], ["Cardano (ADA)", 1531854000], ["Cardano (ADA)", 1531864800], ["MonaCoin (MONA)", 1531864800], ["Status (SNT)", 1531897200], ["Dent (DENT)", 1531940400], ["VeChain (VEN)", 1532037600], ["Nebulas (NAS)", 1532196000], ["SmartCash (SMART)", 1532214000], ["Ignis (IGNIS)", 1532214000], ["Cube (AUTO)", 1532224800], ["Red Pulse (RPX)", 1532278800], ["THEKEY (TKY)", 1532278800], ["Mithril (MITH)", 1532286000], ["Holo (HOT)", 1532343600], ["Maker (MKR)", 1532376000], ["True Chain (TRUE)", 1532469600], ["AdEX (ADX)", 1532473200], ["Basic Attention Token (BAT)", 1532473200], ["QASH (QASH)", 1532455200], ["Bitcoin (BTC)", 1532455200], ["TRON (TRX)", 1532455200], ["IOST (IOST)", 1532455200], ["IOST (IOST)", 1532455200], ["IOST (IOST)", 1532559600], ["Neblio (NEBL)", 1532559600], ["Cryptonex (CNX)", 1532505600], ["SALT (SALT)", 1532530200], ["Vertcoin (VTC)", 1532530200], ["Stellar (XLM)", 1532530200], ["Emercoin (EMC)", 1532538000], ["Maker (MKR)", 1532545200], ["Polymath (POLY)", 1532638800], ["Aeternity (AE)", 1532739600], ["NavCoin (NAV)", 1532739600], ["Ambrosus (AMB)", 1532793600], ["Polymath (POLY)", 1532811600], ["Request Network (REQ)", 1532917200], ["Iconomi (ICN)", 1532970000], ["ETHLend (LEND)", 1532984400], ["Request Network (REQ)", 1533056400], ["Request Network (REQ)", 1533056400], ["SmartCash (SMART)", 1533067200], ["Cindicator (CND)", 1533070800], ["Storiqa (STQ)", 1533074400], ["XRP (XRP)", 1533150000], ["Zilliqa (ZIL)", 1533153600], ["Holo (HOT)", 1533153600], ["Dai (DAI)", 1533178800], ["Enjin Coin (ENJ)", 1533178800], ["WAX (WAX)", 1533218400], ["Loom Network (LOOM)", 1533243600], ["Ambrosus (AMB)", 1533315600], ["Bitcoin Interest (BCI)", 1533333600], ["DAI (DAI)", 1533430800], ["Bitcoin Private (BTCP)", 1533517200], ["Factom (FCT)", 1533524400]];
+      function backtest() {
+        // TODO: Need validation
+        const profit = parseFloat(document.getElementById("profit").value.replace(/\d+% ?/g, ""));
+        const loss = parseFloat(document.getElementById("loss").value.replace(/\d+% ?/g, ""));
+        const timeOutInHours = parseFloat(document.getElementById("time").value);
 
-      /*
-      var alertData = [["IOStoken (IOST)", 1524427200], ["IOST (IOST)", 1532455200], ["IOST (IOST)", 1532455200], ["IOST (IOST)", 1532559600], ["Decentraland (MANA)", 1531854000], ["Nebulas (NAS)", 1529956800], ["Nebulas (NAS)", 1532196000], ["Einsteinium (EMC2)", 1531749600], ["Mithril (MITH)", 1522163040], ["Mithril (MITH)", 1529600400], ["Status (SNT)", 1531897200], ["ZCoin (XZC)", 1523570400], ["ZCoin (XZC)", 1524852000], ["WAX (WAX)", 1524081600], ["WAX (WAX)", 1533218400], ["Dai (DAI)", 1529528400], ["DAI (DAI)", 1533430800]];
-      */
+        const GET = 'GET';
+        const csBacktestAPI = 'https://cs-price-alerts.herokuapp.com/backtest?';
+        const profitQuery = 'profit=' + profit;
+        const lossQuery = '&loss=' + loss;
+        const timeOut = '&timeOut=' + timeOutInHours;
+        const apiURL = csBacktestAPI + profitQuery + lossQuery + timeOut;
+        const request = new XMLHttpRequest();
+        request.open(GET, apiURL, false);
+        request.send(null);
 
-
-    function backtest() {
-      // TODO: Need validation
-      let profit = parseFloat(document.getElementById("profit").value.replace(/\d+% ?/g, ""));
-      let loss = parseFloat(document.getElementById("loss").value.replace(/\d+% ?/g, ""));
-      let timeOutInHours = parseFloat(document.getElementById("time").value);
-      let coinResults = [];
-      let dataMap = {};
-
-      for (let i = 0; i < alertData.length; i++) {
-        var coinSymbol = alertData[i][0].match(/\(([^)]+)\)/)[1];
-        let alertStartTime = alertData[i][1];
-        let timeOutInSeconds = (timeOutInHours * 3600);
-        let endTime = parseFloat(alertStartTime) + timeOutInSeconds;
-        let currentTime = Math.round((new Date()).getTime() / 1000);
-        let historicalCoinData;
-
-        if (endTime > currentTime) {
-          continue;
-        }
-
-        /*
-        if (!dataMap[coinSymbol]) {
-          dataMap[coinSymbol] = {};
-        }
-
-        if (dataMap[coinSymbol]) {
-          dataMap[coinSymbol][alertStartTime] = historicalData.Data;
-        }
-        */
-
-        if (!alertsHistoricalData[coinSymbol] || !alertsHistoricalData[coinSymbol][alertStartTime]) {
-          let newDataFetch = getHourlyHistoricalData(endTime, coinSymbol, timeOutInHours);
-          historicalCoinData = newDataFetch.Data;
-        } else {
-          historicalCoinData = alertsHistoricalData[coinSymbol][alertStartTime];
-        }
-
-        let coinResult = [coinSymbol, alertStartTime];
-        let duration = 0;
-
-        if (historicalCoinData) {
-          let output = getBacktestData(historicalCoinData, profit, loss, timeOutInHours, coinSymbol);
-          if (output && !isNaN(output.profit)) {
-            coinResult.push(output.profit);
-            coinResult.push(output.duration);
-            coinResults.push(coinResult);
-          }
-        } else {
-          console.log('Error: No Data!');
-        }
-
+        $('<h1>' + 'Results: ' + request.responseText + '%' + '</h1>').insertAfter('#lastbtn');
       }
-
-      /* downloadData(JSON.stringify(dataMap), 'alertsHistoricalData3', 'application/json'); */
-
-      let totalProfit = 0;
-      for (let j = 0; j < coinResults.length; j++) {
-        totalProfit += coinResults[j][2];
-      }
-
-      totalProfit -= coinResults.length;
-      let totalProfitPercentage = parseFloat(totalProfit * 100).toFixed(2);
-      $('<h1>' + 'Results: ' + totalProfitPercentage + '%' + '</h1>').insertAfter('#lastbtn');
-    }
-
-    function downloadData(data, filename, type) {
-      var file = new Blob([data], {type: type});
-      if (window.navigator.msSaveOrOpenBlob) {
-        /* IE10+ */
-        window.navigator.msSaveOrOpenBlob(file, filename);
-      } else {
-        /* Other Browsers */
-        var a = document.createElement("a");
-        var url = URL.createObjectURL(file);
-        a.href = url;
-        a.download = filename;
-        document.body.appendChild(a);
-        a.click();
-        setTimeout(function() {
-          document.body.removeChild(a);
-          window.URL.revokeObjectURL(url);
-        }, 0);
-      }
-    }
-
-    function getHourlyHistoricalData(endTime, coinSymbol, timeOutInHours) {
-      // TODO: Synchronous XMLHttpRequest on the main thread is deprecated
-      const GET = 'GET';
-      const cryptocompareAPI = 'https://min-api.cryptocompare.com/data/histohour?fsym=';
-      const cryptocompareUSD = '&tsym=USD';
-      const limit = '&limit=' + timeOutInHours;
-      const aggregate = '&aggregate=1';
-      const ts = '&toTs=' + endTime;
-      const USD = 'USD';
-      const apiURL = cryptocompareAPI + coinSymbol + cryptocompareUSD + limit + aggregate + ts;
-      const request = new XMLHttpRequest();
-      request.open(GET, apiURL, false);
-      request.send(null);
-      return JSON.parse(request.responseText);
-    }
-
-    function getBacktestData(historicalData, profit, loss, time, coinSymbol) {
-      let currentCoinHistoricalData = historicalData;
-
-      if (currentCoinHistoricalData.length === 0) {
-        return null;
-      }
-
-      let buyPrice = currentCoinHistoricalData[0].open;
-      let profitTake = (parseFloat(profit)/100);
-      let gainThreshold = (profitTake + 1) * parseFloat(buyPrice);
-      let stopLoss = (parseFloat(loss)/100);
-      let lossThreshold = (1 - stopLoss) * parseFloat(buyPrice);
-      let sellPrice = -1;
-      let duration = -1;
-
-      for (let j = 0; j <= time; j++) {
-        let hourlyHigh = currentCoinHistoricalData[j].high;
-        let hourlyLow = currentCoinHistoricalData[j].low;
-        let closePrice = currentCoinHistoricalData[j].close;
-        let profitHit = false;
-        let lossHit = false;
-
-        if (hourlyHigh >= gainThreshold) {
-          profitHit = true;
-        }
-
-        if (hourlyLow <= lossThreshold) {
-          lossHit = true;
-        }
-
-        if (profitHit) {
-          sellPrice = gainThreshold;
-        }
-
-        if (lossHit) {
-          sellPrice = lossThreshold;
-        }
-
-        if (profitHit && lossHit) {
-          sellPrice = buyPrice;
-        }
-
-        if (lossHit || profitHit) {
-          duration = j + 1;
-          break;
-        }
-
-        if (j === time) {
-          duration = time;
-          sellPrice = closePrice;
-        }
-
-      }
-
-      /*
-      console.log(
-        coinSymbol,
-        'Sell Price / Buy Price',
-        (sellPrice / buyPrice),
-        'Buy Price',
-        buyPrice,
-        'Sell Price',
-        sellPrice,
-        'Duration',
-        duration,
-      );
-      */
-
-      return {profit: (sellPrice/buyPrice), duration};
-    }
-
-    /*
-    function getHourlyHistoricalDataTwo(startTime, endTime, coinSymbol, timeOutInHours) {
-      let newStartTime = startTime;
-      let oneHourInSeconds = 3600;
-      let twelveHoursInSeconds = 43200;
-      let totalResults = [];
-      let newEndTime = parseFloat(startTime) + 43200;
-
-      for (let i = 0; i < 28; i++) {
-        if (i !== 0) {
-          newStartTime = newEndTime + oneHourInSeconds;
-          newEndTime = newStartTime + twelveHoursInSeconds;
-        }
-
-        let currentHourlyResults = fetchDataFromCCApi(newEndTime, coinSymbol, 12);
-
-        if (currentHourlyResults.Data) {
-          totalResults = totalResults.concat(currentHourlyResults.Data);
-        }
-
-      }
-
-      return totalResults;
-    }
-    */
-
-    /*
-    function fetchDataFromCCApi(endTime, coinSymbol, timeOutInHours) {
-      // TODO: Synchronous XMLHttpRequest on the main thread is deprecated
-      let GET = 'GET';
-      let cryptocompareAPI = 'https://min-api.cryptocompare.com/data/histohour?fsym=';
-      let cryptocompareUSD = '&tsym=USD';
-      let limit = '&limit=' + timeOutInHours;
-      let aggregate = '&aggregate=1';
-      let ts = '&toTs=' + endTime;
-      let USD = 'USD';
-      let apiURL = cryptocompareAPI + coinSymbol + cryptocompareUSD + limit + aggregate + ts;
-      let request = new XMLHttpRequest();
-      request.open(GET, apiURL, false);
-      request.send(null);
-      return JSON.parse(request.responseText);
-    }
-    */
 
     </script>
     <!-- Contact form JavaScript -->
